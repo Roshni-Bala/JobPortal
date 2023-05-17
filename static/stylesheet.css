@@ -72,4 +72,79 @@ body {
     border-radius: 4px;
     margin-top: 20px;
   }
+  .search-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
   
+  .search-button:hover {
+    background-color: #45a049;
+  }
+  
+  .search-button:focus {
+    outline: none;
+  }
+  .search-input {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #4CAF50;
+    font-size: 16px;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-bottom-color: #337ab7;
+  }
+
+
+  .job-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align the job cards */
+    align-items: center; /* Center align vertically */
+    gap: 20px; /* Add some spacing between the job cards */
+}
+
+.job-card {
+    background-color: #e0e0f0; /* Slightly darker blue than the background */
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.job-card:hover {
+    background-color: #d0d0e0; /* Darker shade on hover */
+}
+
+
+.job-card h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.job-card p {
+    margin-bottom: 5px;
+}
+
+.search-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
