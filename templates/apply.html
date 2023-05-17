@@ -1,3 +1,5 @@
+<!-- apply.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,18 +7,25 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
 </head>
 <body>
-    <h1>Apply for Job</h1>
-
-    {% for job in jobs %}
-    <div class="card">
-        <h2>{{ job.CompanyName }}</h2>
-        <p><strong>Job Domain:</strong> {{ job.JobDomain }}</p>
-        <p><strong>Primary Skill:</strong> {{ job.PSkill }}</p>
-        <p><strong>Secondary Skill:</strong> {{ job.SSkill }}</p>
-        <p><strong>Role:</strong> {{ job.Role }}</p>
-        <p><strong>Years of Experience:</strong> {{ job.YoE }}</p>
-        <p><strong>Salary:</strong> {{ job.Salary }}</p>
+    <h1>Job Search</h1>
+    <form method="GET" action="{{ url_for('apply') }}">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search_query" placeholder="Enter search query">
+        <input type="submit" value="Search">
+    </form>
+    <h2>Search Results:</h2>
+    <div>
+        {% for job in jobs %}
+        <div class="job-card">
+            <h3>{{ job['CompanyName'] }}</h3>
+            <p>Job Domain: {{ job['JobDomain'] }}</p>
+            <p>Primary Skill: {{ job['PSkill'] }}</p>
+            <p>Secondary Skill: {{ job['SSkill'] }}</p>
+            <p>Role: {{ job['Role'] }}</p>
+            <p>Years of Experience: {{ job['YoE'] }}</p>
+            <p>Salary: {{ job['Salary'] }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </body>
 </html>

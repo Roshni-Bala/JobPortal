@@ -75,17 +75,15 @@ def hiring():
 
     return render_template('hiring.html')
 
-@app.route('/apply')
+@app.route('/apply', methods=['GET'])
 @login_required
 def apply():
-    jobs = mongo.db.JobPortal.find()
+    search_query = request.args.get('search_query', '')
+    jobs = []
+    if search_query:
+        jobs = mongo.db.JobPortal.find({'$text': {'$search': search_query}})
+
     return render_template('apply.html', jobs=jobs)
-
-
-# @app.route('/apply')
-# @login_required
-# def apply():
-#     return render_template('apply.html')
 
 @app.route('/logout')
 @login_required
