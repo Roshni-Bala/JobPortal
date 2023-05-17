@@ -28,7 +28,6 @@ def login():
 def login_submit():
     email = request.form.get('Email')
     password = request.form.get('Password')
-
     user = mongo.db.Users.find_one({'Email': email})
 
     if user and user['Password'] == password:
@@ -37,13 +36,6 @@ def login_submit():
         return 'Login successful'
     else:
         return 'Invalid email or password'
-
-
-# @app.route('/protected')
-# @login_required
-# def protected():
-#     return 'Protected page'
-
 
 @app.route('/logout')
 @login_required

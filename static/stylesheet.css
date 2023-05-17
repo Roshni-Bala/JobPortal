@@ -1,0 +1,34 @@
+body {
+    background-color: #E6F4F9;
+    font-family: "Helvetica", sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 50px;
+  }
+  
+  form {
+    margin: 0 auto;
+    width: 300px;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+  }
+  
+  input[type="Email"],
+  input[type="Password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="submit"] {
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    padding: 10px;
+  }
+  
