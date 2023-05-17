@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/Users'
@@ -33,9 +34,20 @@ def login_submit():
     if user and user['Password'] == password:
         user_obj = User(email)
         login_user(user_obj)
-        return 'Login successful'
+        name = user['Name']
+        return render_template('homepage.html', name=name)
     else:
         return 'Invalid email or password'
+    
+
+@app.route('/homepage')
+@login_required
+def profile():
+    user = mongo.db.Users.find_one({'Email': current_user.id})
+    name = user['Name']
+    return render_template('homepage.html', name=name)
+
+
 
 @app.route('/logout')
 @login_required

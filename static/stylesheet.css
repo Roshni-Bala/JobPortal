@@ -32,3 +32,25 @@ body {
     padding: 10px;
   }
   
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #34495e;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #2c3e50;
+    cursor: pointer;
+  }
+  
