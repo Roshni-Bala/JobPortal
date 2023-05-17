@@ -30,6 +30,8 @@ input[type="submit"] {
   color: white;
   border: none;
   padding: 10px;
+  font-size: 20px;
+  border-radius: 80px;
 }
 
 .container {
@@ -155,4 +157,27 @@ button:hover,
   text-align: center;
   font-size: 17px;
   margin-top: 20px;
+}
+
+
+
+.banner p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.banner {
+  background: linear-gradient(to right, #080041, #1700d3);
+  color: #fff;
+  padding: 10px;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 100px;
+  width: 400px;
+}
+
+
+.banner h2 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
