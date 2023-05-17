@@ -71,19 +71,20 @@ def hiring():
 
         # Access the 'JobPortal' collection within the same database
         mongo.db.JobPortal.insert_one(hiring_data)
-        return redirect(url_for('homepage'))
+        return redirect(url_for('apply'))
 
     return render_template('hiring.html')
 
 @app.route('/apply', methods=['GET'])
-@login_required
 def apply():
     search_query = request.args.get('search_query', '')
-    jobs = []
     if search_query:
         jobs = mongo.db.JobPortal.find({'$text': {'$search': search_query}})
+    else:
+        jobs = mongo.db.JobPortal.find()
 
     return render_template('apply.html', jobs=jobs)
+
 
 @app.route('/logout')
 @login_required

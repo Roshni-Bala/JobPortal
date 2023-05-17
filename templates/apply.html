@@ -1,54 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Apply</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
-    <style>
-        .job-card {
-            background-color: #33475B;
-            color: #FFFFFF;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
+{% extends 'base.html' %}
 
-        .job-card:hover {
-            background-color: #293A4A;
-        }
+{% block title %}Apply{% endblock %}
 
-        .job-card h3 {
-            margin-top: 0;
-        }
-
-        .job-card button {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
+{% block content %}
     <h1>Job Search</h1>
     <form method="GET" action="{{ url_for('apply') }}">
         <label for="search">Search:</label>
-        <input type="text" id="search" name="search_query" placeholder="Enter search query">
+        <input type="text" id="search" name="search_query" placeholder="Enter search query" style="width: 180px; height: 37px;">
         <button class="search-button" type="submit">Search</button>
     </form>
     <h2>Search Results:</h2>
     <div class="job-cards-container">
-        {% for job in jobs %}
-        <div class="job-card">
-            <h3>{{ job['CompanyName'] }}</h3>
-            <p>Job Domain: {{ job['JobDomain'] }}</p>
-            <p>Primary Skill: {{ job['PSkill'] }}</p>
-            <p>Secondary Skill: {{ job['SSkill'] }}</p>
-            <p>Role: {{ job['Role'] }}</p>
-            <p>Years of Experience: {{ job['YoE'] }}</p>
-            <p>Salary: {{ job['Salary'] }}</p>
-            <button onclick="location.href='mailto:searchjobs@apply.com?subject={{ job['CompanyName'] }} - {{ job['JobDomain'] }} - {{ job['PSkill'] | replace(' ', '%20') }}'" class="apply-button">Apply Now</button>
-        </div>
-        {% endfor %}
+        {% if not search_query %}
+            {% for job in jobs %}
+                <div class="job-card">
+                    <h3>{{ job['CompanyName'] }}</h3>
+                    <p>Job Domain: {{ job['JobDomain'] }}</p>
+                    <p>Primary Skill: {{ job['PSkill'] }}</p>
+                    <p>Secondary Skill: {{ job['SSkill'] }}</p>
+                    <p>Role: {{ job['Role'] }}</p>
+                    <p>Years of Experience: {{ job['YoE'] }}</p>
+                    <p>Salary: {{ job['Salary'] }}</p>
+                    <button onclick="location.href='mailto:searchjobs@apply.com?subject={{ job['CompanyName'] }} - {{ job['JobDomain'] }} - {{ job['PSkill'] | replace(' ', '%20') }}'" class="apply-button">Apply Now</button>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for job in jobs %}
+                {% if search_query in job['CompanyName'] or search_query in job['JobDomain'] or search_query in job['PSkill'] %}
+                    <div class="job-card">
+                        <h3>{{ job['CompanyName'] }}</h3>
+                        <p>Job Domain: {{ job['JobDomain'] }}</p>
+                        <p>Primary Skill: {{ job['PSkill'] }}</p>
+                        <p>Secondary Skill: {{ job['SSkill'] }}</p>
+                        <p>Role: {{ job['Role'] }}</p>
+                        <p>Years of Experience: {{ job['YoE'] }}</p>
+                        <p>Salary: {{ job['Salary'] }}</p>
+                        <button onclick="location.href='mailto:searchjobs@apply.com?subject={{ job['CompanyName'] }} - {{ job['JobDomain'] }} - {{ job['PSkill'] | replace(' ', '%20') }}'" class="apply-button">Apply Now</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
-    
-
-    
-</body>
-</html>
+    {% endblock %}
