@@ -2,13 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
-
 app = Flask(__name__)
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/Users'
-
 
 # ======================================= LOGIN =====================================================
 app.secret_key = 'roshnisSecretKEY!'
+
+# Configure the MongoDB URI for the database
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/Users'
 
 mongo = PyMongo(app)
 login_manager = LoginManager(app)
@@ -38,16 +38,54 @@ def login_submit():
         return render_template('homepage.html', name=name)
     else:
         return 'Invalid email or password'
-    
+
+#-------------------------------- LOGIN DONE ----------------------------------
 
 @app.route('/homepage')
 @login_required
-def profile():
+def homepage():
     user = mongo.db.Users.find_one({'Email': current_user.id})
     name = user['Name']
     return render_template('homepage.html', name=name)
 
+@app.route('/hiring', methods=['POST', 'GET'])
+def hiring():
+    if request.method == 'POST':
+        company_name = request.form.get('CompanyName')
+        job_domain = request.form.get('JobDomain')
+        primary_skill = request.form.get('PSkill')
+        secondary_skill = request.form.get('SSkill')
+        role = request.form.get('Role')
+        experience = request.form.get('YoE')
+        salary = request.form.get('Salary')
 
+        hiring_data = {
+            'CompanyName': company_name,
+            'JobDomain': job_domain,
+            'PSkill': primary_skill,
+            'SSkill': secondary_skill,
+            'Role': role,
+            'YoE': experience,
+            'Salary': salary
+        }
+
+        # Access the 'JobPortal' collection within the same database
+        mongo.db.JobPortal.insert_one(hiring_data)
+        return redirect(url_for('homepage'))
+
+    return render_template('hiring.html')
+
+@app.route('/apply')
+@login_required
+def apply():
+    jobs = mongo.db.JobPortal.find()
+    return render_template('apply.html', jobs=jobs)
+
+
+# @app.route('/apply')
+# @login_required
+# def apply():
+#     return render_template('apply.html')
 
 @app.route('/logout')
 @login_required

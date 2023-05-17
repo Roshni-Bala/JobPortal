@@ -39,18 +39,37 @@ body {
     align-items: center;
   }
   
-  button {
-    margin: 10px;
+  .button {
+    display: inline-block;
     padding: 10px 20px;
-    background-color: #34495e;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
+    background-color: darkblue;
+    color: white;
+    text-decoration: none;
+    text-align: center;
     font-size: 16px;
+    border-radius: 4px;
   }
   
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+
   button:hover {
     background-color: #2c3e50;
     cursor: pointer;
+  }
+  
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
   }
   

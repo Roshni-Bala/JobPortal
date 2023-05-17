@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hire</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <h1>Hire for Job</h1>
+    <form method="POST" action="{{ url_for('hiring') }}">
+
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="CompanyName" required><br><br>
+        
+        <label for="domain">Job Domain:</label>
+        <input type="text" id="domain" name="JobDomain" required><br><br>
+        
+        <label for="pskill">Primary Skill:</label>
+        <input type="text" id="pskill" name="PSkill" required><br><br>
+        
+        <label for="sskill">Secondary Skill:</label>
+        <input type="text" id="sskill" name="SSkill" required><br><br>
+        
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="Role" required><br><br>
+        
+        <label for="experience">Years of Experience:</label>
+        <input type="text" id="experience" name="YoE" required><br><br>
+        
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="Salary" required><br><br>
+        
+        <input type="submit" value="Hire">
+        
+    </form>
+</body>
+</html>

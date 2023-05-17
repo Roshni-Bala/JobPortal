@@ -7,10 +7,9 @@
 <body>
     <h1>Hi, {{ name }}</h1>
     <p>Welcome to your profile page!</p>
-        <div class="container">
-          <button>Hire</button>
-          <button>Apply for Jobs</button>
-        </div>
-      </body>
-      
+    <div class="button-container">
+        <a class="button" href="{{ url_for('hiring') }}">List a Job</a>
+        <a class="button" href="{{ url_for('apply') }}">Apply for Jobs</a>
+    </div>
+</body>
 </html>

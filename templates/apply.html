@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}">
+</head>
+<body>
+    <h1>Apply for Job</h1>
+
+    {% for job in jobs %}
+    <div class="card">
+        <h2>{{ job.CompanyName }}</h2>
+        <p><strong>Job Domain:</strong> {{ job.JobDomain }}</p>
+        <p><strong>Primary Skill:</strong> {{ job.PSkill }}</p>
+        <p><strong>Secondary Skill:</strong> {{ job.SSkill }}</p>
+        <p><strong>Role:</strong> {{ job.Role }}</p>
+        <p><strong>Years of Experience:</strong> {{ job.YoE }}</p>
+        <p><strong>Salary:</strong> {{ job.Salary }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
