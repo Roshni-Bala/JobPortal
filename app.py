@@ -7,7 +7,6 @@ app = Flask(__name__)
 # ======================================= LOGIN =====================================================
 app.secret_key = 'roshnisSecretKEY!'
 
-# Configure the MongoDB URI for the database
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/Users'
 
 mongo = PyMongo(app)
@@ -69,7 +68,7 @@ def hiring():
             'Salary': salary
         }
 
-        # Access the 'JobPortal' collection within the same database
+        
         mongo.db.JobPortal.insert_one(hiring_data)
         return redirect(url_for('apply'))
 
