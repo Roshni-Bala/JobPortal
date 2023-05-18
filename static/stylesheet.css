@@ -2,6 +2,7 @@ body {
   background-color: #E6F4F9;
   font-family: "Helvetica", sans-serif;
   text-align: center;
+  
 }
 
 h1 {
@@ -21,18 +22,38 @@ label {
 input[type="Email"],
 input[type="Password"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #333;
+}
+
+input[type="Email"]:focus,
+input[type="Password"]:focus {
+  outline: none;
+  border-color: #1700d3;
+  box-shadow: 0 0 5px #1700d3;
 }
 
 input[type="submit"] {
-  background-color: #337ab7;
-  color: white;
+  background-color: #080041;
+  color: #fff;
   border: none;
-  padding: 10px;
-  font-size: 20px;
-  border-radius: 80px;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
+
+input[type="submit"]:hover {
+  background-color: #1700d3;
+}
+
+
+
 
 .container {
   display: flex;
@@ -167,10 +188,10 @@ button:hover,
 }
 
 .banner {
-  background: linear-gradient(to right, #080041, #1700d3);
+  background: #080041;
   color: #fff;
   padding: 10px;
-  margin: 10px auto;
+  margin: 40px auto;
   text-align: center;
   border-radius: 100px;
   width: 400px;
