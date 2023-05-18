@@ -3,9 +3,11 @@ Tools Used:
 - Flask
 - MongoDB
 
-![img1](https://github.com/Roshni-Bala/JobPortal/assets/54448939/83a420ff-31e1-4460-948a-9e69d795692c)
-<br>
-![mongo-pic](https://github.com/Roshni-Bala/JobPortal/assets/54448939/2f4c2172-a2af-44f9-ae2e-e39db01eeffc)
+
+![img1](https://github.com/Roshni-Bala/JobPortal/assets/54448939/fb46f16f-ecf5-4c5c-b31b-b25326212ec1)
+![mongo-pic](https://github.com/Roshni-Bala/JobPortal/assets/54448939/774bb8b9-0ae8-4a08-8675-d6ee6abc713f)
+
+
 
 ### Project Conclusion
 The development of this project using Flask and MongoDB has showcased the ease and effectiveness of these technologies in creating a job search portal. Flask, with its lightweight and flexible nature, allows for a customized development approach, enabling developers to structure their projects according to specific requirements. The simplicity and readability of Python, the programming language behind Flask, make the development process more intuitive and accessible.
